@@ -1,0 +1,16 @@
+安装
+====
+
+你可以通过 git 安装 `gduter-py`:
+
+.. code-block:: bash
+
+   pip install git+https://github.com/GDUTMeow/gduter-py
+
+或者，如果你从源代码安装：
+
+.. code-block:: bash
+
+   git clone https://github.com/GDUTMeow/gduter-py
+   cd gduter-py
+   python setup.py install

@@ -1,0 +1,9 @@
+异常
+====
+
+以下是 `gduter.exception` 模块中定义的异常：
+
+.. automodule:: gduter.exception
+   :members:
+   :undoc-members:
+   :show-inheritance:

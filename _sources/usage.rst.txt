@@ -1,0 +1,59 @@
+使用方法
+========
+
+本库主要包含两个核心客户端类：
+
+*   :class:`gduter.client.LoginClient`: 用于登录广东工业大学统一身份认证平台。
+*   :class:`gduter.client.AcademicAffairsOfficeClient`: 用于与教务系统进行交互，需要先通过 :class:`gduter.client.LoginClient` 登录。
+
+登录统一身份认证平台
+--------------------
+
+使用 :class:`~gduter.client.LoginClient` 进行登录：
+
+.. code-block:: python
+
+   from gduter.client import LoginClient
+
+   login_client = LoginClient()
+   try:
+       login_client.login("你的学号", "你的密码")
+       print("登录成功！")
+   except Exception as e:
+       print(f"登录失败: {e}")
+
+登录教务系统并获取课表
+----------------------
+
+需要先使用 :class:`~gduter.client.LoginClient` 登录，然后使用 :class:`~gduter.client.AcademicAffairsOfficeClient`:
+
+.. code-block:: python
+
+   from gduter.client import LoginClient, AcademicAffairsOfficeClient
+   import asyncio
+
+   async def main():
+       login_client = LoginClient()
+       try:
+           login_client.login("你的学号", "你的密码")
+
+           academic_client = AcademicAffairsOfficeClient(login_client=login_client)
+           academic_client.login()
+
+           courses = academic_client.get_course_schedule(202401)
+           if courses:
+               for course in courses:
+                   print(f"- {course['course_name']} ({course['teacher_name']})")
+           else:
+               print("没有课程信息。")
+
+       except Exception as e:
+           print(f"发生错误: {e}")
+
+   if __name__ == "__main__":
+       asyncio.run(main())
+
+更多功能
+--------
+
+请参考 API 文档了解更多用法。
