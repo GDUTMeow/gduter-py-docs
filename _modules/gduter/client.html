@@ -1,0 +1,654 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="搜索" href="../../search.html" />
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+        <title>gduter.client - gduter-py 0.1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">gduter-py 0.1.0 文档</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">gduter-py 0.1.0 文档</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="搜索" name="q" aria-label="搜索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">使用方法</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/modules.html">API 文档</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API 文档</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/client.html">client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/utils.html">gduter.utils 模块</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../exceptions.html">异常</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <h1>gduter.client 源代码</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">encrypt_password</span><span class="p">,</span>
+    <span class="n">get_salt_and_execution_from_html</span><span class="p">,</span>
+    <span class="n">process_student_courses_from_data</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.exception</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">LoginError</span><span class="p">,</span>
+    <span class="n">InvalidCredentialsError</span><span class="p">,</span>
+    <span class="n">AccountNotActivatedError</span><span class="p">,</span>
+    <span class="n">GetUserConfigError</span><span class="p">,</span>
+    <span class="n">AcademicLoginError</span><span class="p">,</span>
+    <span class="n">ExamScheduleError</span><span class="p">,</span>
+    <span class="n">NotLoggedInError</span><span class="p">,</span>
+    <span class="n">ClassScheduleError</span><span class="p">,</span>
+    <span class="n">FetchScoresError</span><span class="p">,</span>
+    <span class="n">HTMLExtractionError</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="LoginClient">
+<a class="viewcode-back" href="../../api/client.html#gduter.client.LoginClient">[文档]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LoginClient</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;用于与广东工业大学统一身份认证平台进行交互的客户端。</span>
+
+<span class="sd">    该类封装了与统一身份认证平台交互所需的参数和方法，</span>
+<span class="sd">    包括初始化登录数据和执行登录操作。</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">SERVER</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;https://authserver.gdut.edu.cn&quot;</span>
+    <span class="n">AUTH_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SERVER</span><span class="si">}</span><span class="s2">/authserver/login&quot;</span>  <span class="c1"># ?service={the_url_encoded_services_you_want_to_go}</span>
+    <span class="p">)</span>
+    <span class="n">CHECK_CAPTCHA_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SERVER</span><span class="si">}</span><span class="s2">/authserver/checkNeedCaptcha.htl&quot;</span>  <span class="c1"># ?username={number}&amp;_={timestamp}</span>
+    <span class="p">)</span>
+    <span class="n">GET_LANGUAGE_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SERVER</span><span class="si">}</span><span class="s2">/authserver/common/getLanguageTypes.htl&quot;</span>
+    <span class="n">GET_SERVER_INFO_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SERVER</span><span class="si">}</span><span class="s2">/authserver/tenant/info&quot;</span>
+    <span class="n">GET_USER_CONF_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SERVER</span><span class="si">}</span><span class="s2">/personalInfo/common/getUserConf&quot;</span>
+
+    <span class="n">salt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;登录时用于加密密码的哈希盐&quot;</span><span class="p">)</span>
+    <span class="n">execution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;登录操作的执行内容&quot;</span><span class="p">)</span>
+
+    <span class="n">client</span><span class="p">:</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Client</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;用于发送 HTTP 请求的客户端实例&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
+        <span class="n">arbitrary_types_allowed</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;初始化 LoginClient 类的实例。&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__init_login_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;初始化登录所需的数据：salt 和 execution。</span>
+
+<span class="sd">        发送 GET 请求到统一身份认证平台的登录页面，并解析 HTML</span>
+<span class="sd">        以获取 salt 和 execution 值。</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            HTMLExtractionError: 如果无法从登录页面提取到哈希盐和 execution。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;gduter-py/0.1.0-alpha (Windows NT 10.0; Win64; x64)&quot;</span>
+            <span class="p">},</span>
+            <span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AUTH_URL</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">get_salt_and_execution_from_html</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">HTMLExtractionError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;无法提取哈希盐和execution：</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">salt</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execution</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<div class="viewcode-block" id="LoginClient.login">
+<a class="viewcode-back" href="../../api/client.html#gduter.client.LoginClient.login">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;进行统一身份验证平台的登录操作。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            username: 登录的用户名。</span>
+<span class="sd">            password: 用户的明文密码。</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            InvalidCredentialsError: 用户名或密码错误。</span>
+<span class="sd">            AccountNotActivatedError: 账户未激活。</span>
+<span class="sd">            GetUserConfigError: 获取用户配置失败。</span>
+<span class="sd">            LoginError: 其他登录失败情况。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__init_login_data</span><span class="p">()</span>
+        <span class="n">encrypted_password</span> <span class="o">=</span> <span class="n">encrypt_password</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">salt</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;captcha&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cllt&quot;</span><span class="p">:</span> <span class="s2">&quot;userNameLogin&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dllt&quot;</span><span class="p">:</span> <span class="s2">&quot;generalLogin&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;execution&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">execution</span><span class="p">,</span>
+            <span class="s2">&quot;lt&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="n">encrypted_password</span><span class="p">,</span>
+            <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+            <span class="s2">&quot;_eventId&quot;</span><span class="p">:</span> <span class="s2">&quot;submit&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AUTH_URL</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">301</span><span class="p">,</span> <span class="mi">302</span><span class="p">]:</span>
+            <span class="n">user_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GET_USER_CONF_URL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user_config</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">GetUserConfigError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;获取用户配置失败！</span><span class="si">{</span><span class="n">user_config</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pattern</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">r</span><span class="s1">&#39;&lt;span id=&quot;showErrorTip&quot; class=&quot;form-error&quot;&gt;&lt;span&gt;(.*?)&lt;/span&gt;&lt;/span&gt;&#39;</span>
+            <span class="p">)</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                <span class="n">error_msg</span> <span class="o">=</span> <span class="n">error</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="s2">&quot;该账号非常用账号或用户名密码有误&quot;</span> <span class="ow">in</span> <span class="n">error_msg</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">InvalidCredentialsError</span><span class="p">(</span><span class="s2">&quot;提供的用户名可能不存在或密码错误！&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="s2">&quot;用户名密码错误或者账号未激活&quot;</span> <span class="ow">in</span> <span class="n">error_msg</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">AccountNotActivatedError</span><span class="p">(</span><span class="s2">&quot;用户名密码错误或者账号未激活！&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">LoginError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;登录失败！</span><span class="si">{</span><span class="n">error_msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">LoginError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;登录失败，状态码: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">，内容: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="AcademicAffairsOfficeClient">
+<a class="viewcode-back" href="../../api/client.html#gduter.client.AcademicAffairsOfficeClient">[文档]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AcademicAffairsOfficeClient</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;用于与广东工业大学教务系统进行交互的客户端。</span>
+
+<span class="sd">    依赖于已登录的 `LoginClient` 实例，提供获取课程表、</span>
+<span class="sd">    考试安排、成绩等功能。</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">HOST</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;https://jxfw.gdut.edu.cn&quot;</span>
+    <span class="n">AUTH_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;https://authserver.gdut.edu.cn/authserver/login?service=https%3A</span><span class="si">%2F%2F</span><span class="s2">jxfw.gdut.edu.cn</span><span class="si">%2F</span><span class="s2">new</span><span class="si">%2F</span><span class="s2">ssoLogin&quot;</span>
+    <span class="p">)</span>
+    <span class="n">GET_INFO_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">HOST</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;/xjkpxx!xjkpxx.action&quot;</span>
+    <span class="n">GET_COURSES_SCHEDULE_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">HOST</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;/xsgrkbcx!xsAllKbList.action&quot;</span>
+    <span class="p">)</span>  <span class="c1"># ?xnxqdm={year + 01/02}</span>
+    <span class="n">GET_EXAM_SCHEDULE_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">HOST</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;/xsksap!getDataList.action&quot;</span>
+    <span class="n">GET_EXAM_SCORES_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">HOST</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;/xskccjxx!getDataList.action&quot;</span>
+
+    <span class="n">client</span><span class="p">:</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Client</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;用于发送 HTTP 请求的客户端实例&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">status</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;标记是否成功登陆教务处&quot;</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
+        <span class="n">arbitrary_types_allowed</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">login_instance</span><span class="p">:</span> <span class="n">LoginClient</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;初始化 AcademicAffairsOfficeClient 类的实例。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            login_instance: 已登录的 LoginClient 实例。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">login_instance</span><span class="o">=</span><span class="n">login_instance</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">login_instance</span><span class="o">.</span><span class="n">client</span>
+
+<div class="viewcode-block" id="AcademicAffairsOfficeClient.login">
+<a class="viewcode-back" href="../../api/client.html#gduter.client.AcademicAffairsOfficeClient.login">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;登录教务系统。</span>
+
+<span class="sd">        使用共享的客户端发送 GET 请求到教务系统登录 URL。</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            AcademicLoginError: 登录教务系统失败。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AUTH_URL</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="s1">&#39;&lt;a href=&quot;/new/logout&quot;&gt;注销&lt;/a&gt;&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+            <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AcademicLoginError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;登录教务处失败了！状态码：</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AcademicAffairsOfficeClient.get_course_schedule">
+<a class="viewcode-back" href="../../api/client.html#gduter.client.AcademicAffairsOfficeClient.get_course_schedule">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_course_schedule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取指定学期代码的课程表。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            period: 学年学期代码，例如 202401。</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            包含课程信息的字典列表。</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotLoggedInError: 账号未登录。</span>
+<span class="sd">            ClassScheduleError: 无法获取课程表或课表为空。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Host&quot;</span><span class="p">:</span> <span class="s2">&quot;jxfw.gdut.edu.cn&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Referer&quot;</span><span class="p">:</span> <span class="s2">&quot;https://jxfw.gdut.edu.cn/xsgrkbcx!getXsgrbkList.action&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotLoggedInError</span><span class="p">(</span><span class="s2">&quot;账号未登录！&quot;</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GET_COURSES_SCHEDULE_URL</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;?xnxqdm=</span><span class="si">{</span><span class="n">period</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;使用统一认证中心登录&quot;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">raise</span> <span class="n">NotLoggedInError</span><span class="p">(</span><span class="s2">&quot;请进行重新登陆！&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">courses</span> <span class="o">=</span> <span class="n">process_student_courses_from_data</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ClassScheduleError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;无法获取课程表！状态码：</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">courses</span></div>
+
+    
+<div class="viewcode-block" id="AcademicAffairsOfficeClient.get_semester_start_date">
+<a class="viewcode-back" href="../../api/client.html#gduter.client.AcademicAffairsOfficeClient.get_semester_start_date">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_semester_start_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取指定学期的开始日期。</span>
+<span class="sd">        Args:</span>
+<span class="sd">            period: 学年学期代码，例如 202401。</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            学期开始日期。</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            NotLoggedInError: 账号未登录。</span>
+<span class="sd">            ValueError: 未找到开学日期。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://jxfw.gdut.edu.cn/xsgrkbcx!getKbRq.action?xnxqdm=</span><span class="si">{</span><span class="n">period</span><span class="si">}</span><span class="s2">&amp;zc=01&quot;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span>
+                        <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                            <span class="s2">&quot;Host&quot;</span><span class="p">:</span> <span class="s2">&quot;jxfw.gdut.edu.cn&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;Referer&quot;</span><span class="p">:</span> <span class="s2">&quot;https://jxfw.gdut.edu.cn/xsgrkbcx!getXsgrbkList.action&quot;</span><span class="p">,</span>
+                        <span class="p">}</span>
+                        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotLoggedInError</span><span class="p">(</span><span class="s2">&quot;账号未登录或登录已过期！&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># 解析第一周周一</span>
+        <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">day</span><span class="p">[</span><span class="s2">&quot;xqmc&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">day</span><span class="p">[</span><span class="s2">&quot;rq&quot;</span><span class="p">],</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;未找到开学日期&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="AcademicAffairsOfficeClient.get_academic_scores">
+<a class="viewcode-back" href="../../api/client.html#gduter.client.AcademicAffairsOfficeClient.get_academic_scores">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_academic_scores</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">period</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">plan</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">rows</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
+        <span class="n">sort</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;xnxqdm&quot;</span><span class="p">,</span>
+        <span class="n">order</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;asc&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取学生指定学期的学业成绩。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            period: 学年学期代码，例如 202401。</span>
+<span class="sd">            plan: 计划类型代码，默认为空字符串。</span>
+<span class="sd">            page: 页码，默认为 1。</span>
+<span class="sd">            rows: 每页显示的行数，默认为 60。</span>
+<span class="sd">            sort: 排序字段，默认为 &quot;xnxqdm&quot;。</span>
+<span class="sd">            order: 排序顺序，默认为 &quot;asc&quot;。</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            包含成绩信息的字典。</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotLoggedInError: 账号未登录。</span>
+<span class="sd">            FetchScoresError: 获取课程成绩失败。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotLoggedInError</span><span class="p">(</span><span class="s2">&quot;账号未登录！&quot;</span><span class="p">)</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;xnxqdm&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">period</span><span class="p">),</span>
+            <span class="s2">&quot;jhlxdm&quot;</span><span class="p">:</span> <span class="n">plan</span><span class="p">,</span>
+            <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">),</span>
+            <span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">),</span>
+            <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="n">sort</span><span class="p">,</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="n">order</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Host&quot;</span><span class="p">:</span> <span class="s2">&quot;jxfw.gdut.edu.cn&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Origin&quot;</span><span class="p">:</span> <span class="s2">&quot;https://jxfw.gdut.edu.cn&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Referer&quot;</span><span class="p">:</span> <span class="s2">&quot;https://jxfw.gdut.edu.cn/xskccjxx!xskccjList.action?firstquery=1&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GET_EXAM_SCORES_URL</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;使用统一认证中心登录&quot;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">raise</span> <span class="n">NotLoggedInError</span><span class="p">(</span><span class="s2">&quot;请进行重新登陆！&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">FetchScoresError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;获取课程成绩失败！状态码：</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AcademicAffairsOfficeClient.get_exam_schedule">
+<a class="viewcode-back" href="../../api/client.html#gduter.client.AcademicAffairsOfficeClient.get_exam_schedule">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_exam_schedule</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">period</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">rows</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
+        <span class="n">sort</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;zc,xq,jcdm2&quot;</span><span class="p">,</span>
+        <span class="n">order</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;asc&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取指定学期代码的考试安排。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            period: 学年学期代码，例如 202401。</span>
+<span class="sd">            page: 页码，默认为 1。</span>
+<span class="sd">            rows: 每页显示的行数，默认为 60。</span>
+<span class="sd">            sort: 排序字段，默认为 &quot;zc,xq,jcdm2&quot;。</span>
+<span class="sd">            order: 排序顺序，默认为 &quot;asc&quot;。</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            包含考试安排信息的字典。</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotLoggedInError: 账号未登录。</span>
+<span class="sd">            ExamScheduleError: 获取考试信息失败。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotLoggedInError</span><span class="p">(</span><span class="s2">&quot;账号未登录！&quot;</span><span class="p">)</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;xnxqdm&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">period</span><span class="p">),</span>
+            <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">),</span>
+            <span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">),</span>
+            <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="n">sort</span><span class="p">,</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="n">order</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Host&quot;</span><span class="p">:</span> <span class="s2">&quot;jxfw.gdut.edu.cn&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Origin&quot;</span><span class="p">:</span> <span class="s2">&quot;https://jxfw.gdut.edu.cn&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Referer&quot;</span><span class="p">:</span> <span class="s2">&quot;https://jxfw.gdut.edu.cn/xsksap!ksapList.action&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GET_EXAM_SCHEDULE_URL</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;使用统一认证中心登录&quot;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">raise</span> <span class="n">NotLoggedInError</span><span class="p">(</span><span class="s2">&quot;请进行重新登陆！&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ExamScheduleError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;获取考试信息失败！</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, GamerNoTitle
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=d786bb5c"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../_static/translations.js?v=beaddf03"></script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+client
+======
+
+.. automodule:: gduter.client
+   :members:
+
+.. .. autoclass:: gduter.client.LoginClient
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:
+
+.. .. autoclass:: gduter.client.AcademicAffairsOfficeClient
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:

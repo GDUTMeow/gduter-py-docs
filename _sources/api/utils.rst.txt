@@ -1,0 +1,7 @@
+gduter.utils 模块
+=======================
+
+.. automodule:: gduter.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
